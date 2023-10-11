@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>색속성</title>
+     <!-- 
+          색상 관련 속성
+          - color : 글자색
+          - background-color : 배경색
+          - border-color : 테두리색
+          색 지정 방법
+          - 이미 지정된 이름을 사용하는 경우 : red, bule, green
+          - 색상 코드를 사용하는 방법 : 16진수 코드 ##03c75a
+          - rgb 코드를 사용하는 방법 : rgb(255,0,0);
+          - rgba 코드를 사용하는 방법 : 기본 rgb + a(투명도) 추가
+            a : 투명도 0~1 
+     
+      -->
+     <style>
+          div {
+               font-size: 20px;
+               font-weight: 700;
+          }
+
+          .color {
+               color: chartreuse;
+          }
+
+          .bg-color {
+               background-color: cadetblue;
+          }
+
+          .boder {
+               /*-webkit-text-stroke: 0.5px blue;*/
+
+               /* 두께, 색상,  */
+               border: 1px solid black;
+               /* border-style: solid;
+               border-width: 1px;
+               border-color: brown; */
+
+
+               /* 
+               -webkit-text-stroke-width: 1px;
+               -webkit-text-stroke-color: blue;
+                */
+          }
+
+          p {
+               font-size: 20px;
+               color: blue;
+          }
+
+          .second {
+               color: black;
+          }
+     </style>
+</head>
+
+<body>
+
+     <div class="color">안녕하세요. (글자색) </div>
+     <div class="bg-color">안녕하세요. (배경색) </div>
+     <div class="boder">안녕하세요. (테두리색) </div>
+     <!-- 
+          모든 태그에 사이즈 20px로 적용
+          1,3번 p태그에 폰트색상 파랑 설정
+      -->
+     <p>Ezen</p>
+     <p class="second">Academy</p>
+     <p>big data</p>
+</body>
+
+</html>
