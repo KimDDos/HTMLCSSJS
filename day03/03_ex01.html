@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>문제</title>
+     <!-- 
+          div 3개 만들어
+          naver, google, daum 사이트로 연결되게 하고,
+          각각의 효과를 div의 색과 모양을 달리하여 스타일 주기
+
+          ul>li*10 1~10까지 값을 쓰고,
+          짝수 : 빨간색
+          3, 6, 9 : 초록색
+          1, 10 : 굵게
+          뒤 요소에 .을 추가
+     -->
+     <style>
+          div {
+               background-color: antiquewhite;
+               font-weight: 600;
+               width: 100px;
+               height: 30px;
+               border: 1px solid black;
+               text-align: center;
+          }
+
+          .naver {
+               background-color: blueviolet;
+          }
+
+          .naver a {
+               color: aliceblue;
+          }
+
+          .google {
+               background-color: bisque;
+          }
+
+          .google a {
+               color: blue;
+          }
+
+          .daum {
+               background-color: brown;
+          }
+
+          .daum a {
+               color: aliceblue;
+          }
+
+          a {}
+
+          a:link {
+               text-decoration: none;
+          }
+
+          a:visited {
+               color: chartreuse;
+          }
+
+          a:active {
+               color: brown;
+          }
+
+          ul>li {
+               list-style: none;
+               display: inline;
+               margin-left: 20px;
+          }
+
+          ul>li:nth-child(2n) {
+               color: green;
+          }
+
+          ul>li:nth-child(3n) {
+               color: red;
+          }
+
+          ul>li:first-child,
+          ul>li:last-child {
+               font-weight: 700;
+          }
+
+          ul>li::after {
+               content: ".";
+          }
+     </style>
+</head>
+
+<body>
+     <div class="naver">
+          <a href="https://www.naver.com/" target="_blank">
+               Naver</a>
+     </div>
+     <div class="google">
+          <a href="https://www.google.com/" target="_blank">
+               Google</a>
+     </div>
+     <div class="daum">
+          <a href="https://www.daum.net/" target="_blank">
+               Daum</a>
+     </div>
+
+     <ul>
+          <li>
+               1
+          </li>
+          <li class="double">
+               2
+          </li>
+          <li class="three">
+               3
+          </li>
+          <li class="double">
+               4
+          </li>
+          <li>
+               5
+          </li>
+          <li class="three">
+               6
+          </li>
+          <li>
+               7
+          </li>
+          <li class="double">
+               8
+          </li>
+          <li class="three">
+               9
+          </li>
+          <li class="double">
+               10
+          </li>
+     </ul>
+</body>
+
+</html>

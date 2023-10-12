@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <!-- 
+          selector 기타 여러가지 선택자들
+          - :first-Child : 첫번째 요소
+          - :last-child : 마지막 요소
+          - :nth-child(a) : a번째 요소
+          - :nth-of-type(a) : 같은 타입의 a번째 요소
+     
+          - :after : ~뒤에 가상 요소를 삽입
+          - :before : ~전에 가상 요소를 삽입
+          
+          - a tag는 링크를 클릭했는지에 따라서 글꼴 색이 달라지는 태그
+          - 기존 a태그의 배경색이 설정되어 있어야만 적용 가능
+            a:active(클릭할때)  a:visited(링크를 눌러본 후 색)
+            a:link(방문전)
+      -->
+     <style>
+          a {
+               color: black;
+               font-weight: 700;
+               text-decoration: none;
+               /* none은 거의 대부분 없애는 역할임 */
+          }
+
+          a:link {
+               color: black;
+          }
+
+          a:active {
+               color: blue;
+          }
+
+          a:visited {
+               color: rgb(rgb(165, 65, 65), rgb(51, 145, 51), rgb(3, 3, 84));
+          }
+
+          ol {
+               font-weight: 700;
+          }
+
+          ol li:first-child {
+               color: chocolate;
+          }
+
+          ol li:last-child {
+               color: cornflowerblue;
+          }
+
+          ol li::after {
+               content: " 번째";
+          }
+
+          li.links a::after {
+               content: " ·";
+               font-weight: 700;
+          }
+
+          ul li.links a:last-child::after {
+               content: "";
+          }
+
+          ul li a.last::after {
+               content: "";
+          }
+
+          .last::after {
+               content: "";
+          }
+
+          /* Last 클래스 뒤에만 달아줌 */
+
+          li::before {
+               content: "LI 태그";
+               /* content: ""; 일때 빈 공백 하나를 삽입 */
+          }
+     </style>
+
+</head>
+
+<body>
+     <!-- 네이버, 구글, 다음으로 연결하는 링크를 작성 -->
+     <ul>
+          <li class="links">
+               <a href="https://www.naver.com/" target="_blank">Naver1</a>
+               <a href="https://www.naver.com/" target="_blank">Naver2</a>
+               <a href="https://www.naver.com/" target="_blank">Naver3</a>
+               <a href="https://www.naver.com/" target="_blank">Naver4</a>
+               <a href="https://www.naver.com/" target="_blank">Naver5</a>
+          </li>
+          <li class="links">
+               <a href="https://www.google.com/" target="_blank">Google</a>
+               <a href="https://www.google.com/" target="_blank">Google</a>
+               <a href="https://www.google.com/" target="_blank">Google</a>
+               <a href="https://www.google.com/" target="_blank">Google</a>
+               <a href="https://www.google.com/" target="_blank">Google</a>
+               <a href="https://www.google.com/" target="_blank">Google</a>
+               <a href="https://www.google.com/" target="_blank">Google</a>
+          </li>
+          <li class="links">
+               <a href="https://www.daum.net/" target="_blank">Daum</a>
+          </li>
+
+     </ul>
+
+     <ol>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+          <li>4</li>
+          <li>5</li>
+          <li>6</li>
+          <li>7</li>
+          <li>8</li>
+          <li>9</li>
+          <li>10</li>
+     </ol>
+
+</body>
+
+</html>

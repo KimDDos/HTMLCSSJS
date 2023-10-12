@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>text 속성</title>
+     <!-- 
+          text 속성
+          text-align : 정렬 left, right, center, justify(양쪽)
+          text-indent : 들여쓰기
+          text-decoration : 줄긋기
+              - none : 없음
+              - underline : 밑줄
+              - overline : 윗줄
+              - line-through : 가운데줄
+          letter-spacing : 글자간 간격
+          line-height : 글자 기준선 높이
+          word-spacing : 단어간 간격
+          text-shadow : 그림자
+          - text-shadow : 좌측 px 상단 px 번짐정도 px 색상
+          - 중첩(멀티) 효과 ,(콤마)로 계속 이어나갈 수 있음.
+          white-space : 컨텐츠 감싸기 여부 방법
+               - wrap : 여러줄 그대로 두기
+               - nowrap : 한줄로 처리
+          text-overflow : 텍스트가 범위를 넘어가는 경우
+               - ellipsis (...)
+          overflow : 요소가 넘어가면 
+               - hidden : 숨김
+               - scroll : 스크롤 생성
+               - auto : 스크롤 오토 생성
+      -->
+     <!-- 
+          css 표준단위
+          em : 배수, 부모값을 기준으로 배수
+          rem : 배수, 문서의 값을 기준으로 배수
+          % : 퍼센트, 현재 값을 기준으로 %
+          px : 픽셀
+          cm / mm / in : 1 in => 96 px
+          pt : 포인터 1pt = 1/72 in
+          pc : 피카소 1pc = 12pt
+          deg : 각도
+
+       -->
+     <style>
+          div {
+               width: 300px;
+               height: 50px;
+               border: 2px solid black;
+               font-size: 20px;
+               font-weight: 700;
+               text-align: center;
+               line-height: 50px;
+               word-spacing: 20px;
+               text-shadow: 2px 4px 2px gray;
+
+          }
+
+          p {
+               text-indent: 20px;
+          }
+
+          .line {
+               text-overflow: ellipsis;
+               white-space: nowrap;
+               overflow: hidden;
+               /* overflow를 주지 않으면 스크롤이 기본으로 감 */
+          }
+     </style>
+</head>
+
+<body>
+     <div>hello hello hi hi</div>
+     <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, pariatur aspernatur! Nam exercitationem,
+          deserunt voluptate fuga esse, odit quae dolorem eius temporibus quia iusto voluptatem quas sequi veritatis.
+          Voluptatum, quisquam.
+     </p>
+     <p class="line">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, pariatur aspernatur! Nam exercitationem,
+          deserunt voluptate fuga esse, odit quae dolorem eius temporibus quia iusto voluptatem quas sequi veritatis.
+          Voluptatum, quisquam.
+     </p>
+</body>
+
+</html>
