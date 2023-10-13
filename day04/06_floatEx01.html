@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <!-- p-box안에 box 3개 구성 -->
+     <!-- 해당 3개 박스가 화면을 꽉차게 동일한 크기로 구성
+          각기 다른 배경색, 선 X -->
+     <style>
+          .pbox {
+               width: 100%;
+               background-color: white;
+          }
+
+          .box {
+               width: 33%;
+               height: 100px;
+               float: left;
+          }
+     </style>
+</head>
+
+<body>
+     <div class="pbox">
+          <div class="box" style="background-color: aquamarine;">1</div>
+          <div class="box" style="background-color: red;">2</div>
+          <div class="box" style="background-color: green;">3</div>
+     </div>
+</body>
+
+</html>
