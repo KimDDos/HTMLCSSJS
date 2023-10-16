@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>메뉴2</title>
+     <style>
+          div {
+               width: 100%;
+               float: left;
+          }
+
+          div>div.domain-menu {
+               position: relative;
+               width: 200px;
+               height: 200px;
+          }
+
+          div>div.domain-img {
+               position: relative;
+               float: right;
+               width: calc(100% - 210px);
+               height: 700px;
+               border: 1px solid black;
+               background-image: url(../image/풍경사진2.jpg);
+               background-repeat: no-repeat;
+               background-size: cover;
+          }
+
+          .left-box {
+               width: 100%;
+               display: inline-block;
+               position: relative;
+               box-sizing: border-box;
+               height: 40px;
+               border: 1px solid black;
+               text-align: center;
+               line-height: 35px;
+          }
+
+          .s-box {
+               border-bottom: none;
+          }
+
+          .right-box {
+               width: 95%;
+               height: 500px;
+               display: inline-block;
+               position: relative;
+               box-sizing: border-box;
+               border: 1px solid black;
+               text-align: center;
+               margin-left: 10px;
+          }
+     </style>
+</head>
+
+<body>
+     <div>
+          <div class="domain-menu">
+               <a href="#" class="left-box s-box">Menu 1</a>
+               <a href="#" class="left-box s-box">Menu 2</a>
+               <a href="#" class="left-box s-box">Menu 3</a>
+               <a href="#" class="left-box">Menu 4</a>
+          </div>
+          <div class="domain-img"></div>
+     </div>
+</body>
+
+</html>

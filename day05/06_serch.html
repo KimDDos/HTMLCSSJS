@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색창 만들기</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        .search-main {
+            position: relative;
+            border: 2px solid rgb(17, 225, 17);
+            width: 300px;
+            height: 40px;
+        }
+
+        .left-box {
+            position: absolute;
+            float: left;
+            width: 85%;
+            height: 30px;
+        }
+
+        .right-box {
+            position: absolute;
+            background-color: rgb(17, 225, 17);
+            border-radius: 1px;
+            border-style: none;
+            line-height: 10px;
+            font-size: 1.2em;
+            color: white;
+            float: right;
+            right: 0px;
+            width: 10%;
+            height: 40px;
+        }
+
+        .right-box:hover {
+            cursor: pointer;
+            background-color: rgba(32, 236, 32, 0.659);
+        }
+
+        input {
+            margin: 5px 3px;
+            border-width: 0px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .bi-keyboard {
+            position: absolute;
+            float: right;
+            color: rgba(128, 128, 128, 0.489);
+            font-size: 1.2em;
+            margin-top: 6.8px;
+            right: 60px;
+        }
+
+        .bi-caret-down-fill {
+            position: absolute;
+            float: right;
+            color: rgba(32, 236, 32, 0.659);
+            font-size: 1.2em;
+            margin-top: 8px;
+            right: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search-main">
+        <form action="" class="box">
+            <input type="search" class="left-box" name="search" style="width: 210px ; height: 30px; font-size: 1em;"
+                value="">
+            <i class="bi bi-keyboard"></i>
+            <i class="bi bi-caret-down-fill"></i>
+            <button type="submit" class="right-box">
+                <i class="bi bi-search"></i>
+            </button>
+        </form>
+    </div>
+</body>
+
+</html>

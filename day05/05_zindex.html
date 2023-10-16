@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+            margin : 값 => 위/아래/왼/오 같은 값을 유지
+            margin : 값1 값2 => 위/아래, 왼/오 값을 유지
+            margin : 값1 값2 값3 => 위, 아래, 왼/오 값을 유지
+            margin : 값1 값2 값3 값4=> 위, 아래, 왼, 오 각각 값을 유지
+            단, margin : auto 는 좌우에 대한 값만 가짐
+
+         -->
+    <style>
+        .container {
+            margin: auto;
+            width: 300px;
+            border: 1px solid black;
+            text-align: center;
+            line-height: 50px;
+            font-size: 2em;
+            font: bold;
+        }
+
+        .top,
+        .bt {
+            border: 3px solid black;
+            width: 90%;
+            height: 50px;
+            margin: 10px auto;
+        }
+
+        /* maegin: 10px auto; => 위아래 여백 10px, 좌우는 auto 의미임 */
+
+        .mid {
+            position: relative;
+            border: 3px solid black;
+            width: 90%;
+            height: 250px;
+            margin: 10px auto;
+        }
+
+        .red,
+        .green,
+        .blue {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            box-shadow: 5px 5px gray;
+        }
+
+        .red {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            background-color: red;
+            z-index: 10;
+        }
+
+        .green {
+            position: absolute;
+            top: 80px;
+            left: 80px;
+            background-color: green;
+            z-index: 9;
+        }
+
+        .blue {
+            position: absolute;
+            top: 120px;
+            left: 120px;
+            background-color: blue;
+            z-index: 8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="top">텍스트</div>
+        <div class="mid">
+            <div class="red"></div>
+            <div class="green"></div>
+            <div class="blue"></div>
+        </div>
+        <div class="bt">텍스트</div>
+    </div>
+</body>
+
+</html>

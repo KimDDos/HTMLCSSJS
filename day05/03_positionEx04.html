@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+     <style>
+          .round {
+               width: 100%;
+          }
+
+          .menu-box {
+               width: 100%;
+               height: 30px;
+               border: 1px solid black;
+               display: block;
+               line-height: 30px;
+               color: black;
+               text-align: center;
+               text-decoration: none;
+          }
+
+          .menu-box:hover {
+               background-color: cornflowerblue;
+               cursor: pointer;
+               box-shadow: 3px 3px grey;
+          }
+
+          .s {
+               border-bottom: none;
+          }
+
+          .menu {
+               width: 200px;
+               float: left;
+               height: 45px;
+               text-decoration: none;
+          }
+
+          .img-box {
+               width: calc(100% - 210px);
+               height: 550px;
+               float: right;
+               border: 1px solid black;
+               background-image: url(../image/웃긴동물사진.avif);
+               background-repeat: no-repeat;
+               background-size: cover;
+          }
+     </style>
+</head>
+
+<body>
+     <div class="round">
+          <div class="menu">
+               <a href="#" class="menu-box s">menu1</a>
+               <a href="#" class="menu-box s">menu2</a>
+               <a href="#" class="menu-box s">menu3</a>
+               <a href="#" class="menu-box">menu4</a>
+          </div>
+          <div class="img-box"></div>
+     </div>
+</body>
+
+</html>
