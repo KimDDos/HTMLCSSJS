@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: Hahmlet;
+            src: url(../Font/Hahmlet/Hahmlet-VariableFont_wght.ttf);
+        }
+
+        @font-face {
+            font-family: Nanum_pen_script;
+            src: url(../Font/Nanum_Pen_Script/NanumPenScript-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: Song_Myung;
+            src: url(../Font/Song_Myung/SongMyung-Regular.ttf);
+        }
+
+        body {
+            font-family: Song_Myung;
+            background-color: #2AC1BC;
+        }
+
+        div,
+        header {
+            text-align: center;
+        }
+
+        header>H1 {
+            font-size: 60PX;
+        }
+
+        header>H3 {
+            font-size: 35PX;
+        }
+
+        .menu {
+            width: 300px;
+            background-color: white;
+            margin: auto;
+            border-radius: 10px;
+            margin-bottom: 50px;
+        }
+
+        .menu>div:first-child() {
+            width: 300px;
+            height: 200px;
+            background-color: blue;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .menu>div>h3 {
+            font-size: 1.5em;
+        }
+
+        .p1 {
+            font-size: 18px;
+        }
+
+        .menu>div>p:last-child {
+            padding-bottom: 20px;
+        }
+
+        .image1 {
+            background-image: url(../image/초밥.jpg);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+        </div>
+        <h1>배달의 민족</h1>
+        <h3>넌 배달할 때가 제일 멋있어</h3>
+    </header>
+    <div class=" menu">
+        <div class="image1"></div>
+        <div class="text">
+            <h3>맛있는 초밥</h3>
+            <p1>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p1>
+            <p><del>25,000원</del> 15,000원</p>
+            <p> <a href="#">바로결제</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation</title>
+    <style>
+        @keyframes movement {
+            from {
+                top: 10px;
+                left: 0px;
+            }
+
+            50% {
+                top: 10px;
+                left: 80%;
+            }
+
+            to {
+                top: 10px;
+                left: 10px;
+            }
+        }
+
+        .box {
+            position: relative;
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            animation-name: movement;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

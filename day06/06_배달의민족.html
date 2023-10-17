@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배달의 민족</title>
+    <script>
+
+    </script>
+    <style>
+        @font-face {
+            font-family: Hahmlet;
+            src: url(../Font/Hahmlet/Hahmlet-VariableFont_wght.ttf);
+        }
+
+        @font-face {
+            font-family: Nanum_pen_script;
+            src: url(../Font/Nanum_Pen_Script/NanumPenScript-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: Song_Myung;
+            src: url(../Font/Song_Myung/SongMyung-Regular.ttf);
+        }
+
+        @keyframes move {
+            0% {
+                right: 30px;
+            }
+
+            50% {
+                right: 85%;
+                transform: scaleX(-1);
+            }
+
+            100% {
+                right: 30px;
+                transform: scaleX(1);
+            }
+        }
+
+        h3 {
+            font-size: 1.5em;
+        }
+
+        body {
+            font-family: Song_Myung;
+            background-color: #2AC1BC;
+        }
+
+        header {
+            text-align: center;
+            line-height: 80px;
+            font-size: 2em;
+            height: 250px;
+        }
+
+        .menu {
+            position: relative;
+            float: left;
+            left: 50%;
+            margin-right: 50%;
+            transform: translate(-50%);
+            width: 300px;
+            height: 500px;
+            border: 1px solid #2AC1BC;
+            text-align: center;
+            margin-bottom: 80px;
+            background-color: white;
+            border-radius: 10px;
+            z-index: 10;
+        }
+
+        .menu::after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+
+        .back-img {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 300px;
+            height: 250px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+        }
+
+        .text {
+            position: absolute;
+            top: 255px;
+            margin: 10px 10px 10px 10px;
+            width: 280px;
+            height: 250px;
+            font-size: 18px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .logo {
+            position: fixed;
+            transform: translate(50%);
+            right: 5%;
+            bottom: 50px;
+            width: 140px;
+            height: 100px;
+            background-image: url(../image/배민로고_배경삭제\(1\).jpg);
+            background-color: #2AC1BC;
+            background-size: cover;
+            animation-name: move;
+            animation-duration: 8s;
+            /* animation-delay: 6s; */
+            animation-iteration-count: infinite;
+            z-index: 3;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+        </div>
+        <h1 style="font-size: 2.5em;">배달의 민족</h1>
+        <h3>넌 배달할 때가 제일 멋있어</h3>
+    </header>
+    <div class=" menu">
+        <div class="back-img">
+            <img src="../image/초밥.jpg" alt="not found"
+                style="width: 100%; height: 250px; border-radius: 10px 10px 0px 0px;">
+        </div>
+        <div class="text">
+            <h3>맛있는 초밥</h3>
+            <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+            <p style="color: red; font-size: bold;"><del style="color: black;">25,000원</del> 15,000원</p>
+            <p style="color: blue; font-size: bold;"> <a href="#">바로결제</a></p>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="back-img">
+            <img src="../image/햄버거.jpg" alt="not found"
+                style="width: 100%; height: 250px; border-radius: 10px 10px 0px 0px;">
+        </div>
+        <div class="text">
+            <h3>맛있는 햄버거</h3>
+            <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+            <p style="color: red; font-size: bold;"><del style="color: black;">13,900원</del> 9,900원</p>
+            <p style="color: blue; font-size: bold;"> <a href="#">바로결제</a></p>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="back-img">
+            <img src="../image/피자.jpg" alt="not found"
+                style="width: 100%; height: 250px; border-radius: 10px 10px 0px 0px;">
+        </div>
+        <div class="text">
+            <h3>맛있는 피자</h3>
+            <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+            <p style="color: red; font-size: bold;"><del style="color: black;">22,000원</del> 13,900원</p>
+            <p style="color: blue; font-size: bold;"> <a href="#">바로결제</a></p>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="back-img">
+            <img src="../image/치킨.jpg" alt="not found"
+                style="width: 100%; height: 250px; border-radius: 10px 10px 0px 0px;">
+        </div>
+        <div class="text">
+            <h3>맛있는 치킨</h3>
+            <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+            <p style="color: red; font-size: bold;"><del style="color: black;">25,000원</del> 17,900원</p>
+            <p style="color: blue; font-size: bold;"> <a href="#">바로결제</a></p>
+        </div>
+    </div>
+    <div class="menu">
+        <div class="back-img">
+            <img src="../image/떡볶이.jpg" alt="not found"
+                style="width: 100%; height: 250px; border-radius: 10px 10px 0px 0px;">
+        </div>
+        <div class="text">
+            <h3>맛있는 떡볶이</h3>
+            <p>주머니가 가벼운 당신의 마음까지 생각한 착한 가격!</p>
+            <p style="color: red; font-size: bold;"><del style="color: black;">18,000원</del> 12,900원</p>
+            <p style="color: blue; font-size: bold;"> <a href="#">바로결제</a></p>
+        </div>
+    </div>
+
+</body>
+
+</html>
