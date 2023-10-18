@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100%;
+        }
+
+        .header {
+            height: 60px;
+            padding-left: 30px;
+            padding-top: 3px;
+            font-weight: 700;
+            font-size: 30px;
+        }
+
+        .main-img {
+            height: 600px;
+            background-image: url(../image/main2.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .portfolio {
+            height: 10px;
+            padding-left: 25px;
+            font-size: 16px;
+            font-weight: 700;
+            color: gray;
+        }
+
+        .text-box {
+            height: 180px;
+            padding-left: 30px;
+            padding-top: 10px;
+            font-size: 14px;
+        }
+
+        .text-box>h1 {
+            font-weight: 700;
+        }
+
+        .sub1-img {
+            height: 500px;
+            background-image: url(../image/sub1.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .view-more {
+            position: relative;
+            height: 600px;
+            background-image: url(../image/view_more.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .view-more>div>a {
+            width: 300px;
+            font-size: 60px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            padding: 18px 50px 18px 50px;
+            border: 5px solid white;
+            border-radius: 10px;
+            text-decoration: none;
+        }
+
+        .sub2-img {
+            height: 520px;
+            background-image: url(../image/sub2.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        @media screen and (min-width: 800px) {
+            .main-img {
+                height: 800px;
+            }
+
+            .portfolio {
+                font-size: 20px;
+            }
+
+            .text-box {
+                font-size: 20px;
+                height: 200px;
+            }
+
+            .sub1-img {
+                float: left;
+                width: 50%;
+                height: 600px;
+            }
+
+            .view-more {
+                float: right;
+                width: 50%;
+                height: 300px;
+            }
+
+            .view-more>div>a {
+                width: 150px;
+                font-size: 30px;
+                padding: 9px 25px 9px 25px;
+                border: 3px solid white;
+            }
+
+            .sub2-img {
+                float: right;
+                width: 50%;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">IN'O</div>
+    <div class="main-img"></div>
+    <div class="portfolio">
+        <p>Portfolio</p>
+    </div>
+    <div class="text-box">
+        <h2>Make Hardware Soft</h2>
+        <h4>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections
+            1.10.32 and
+            1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also</h4>
+    </div>
+    <div class="sub1-img"></div>
+    <div class="view-more">
+        <div>
+            <a href="#">View More</a>
+        </div>
+    </div>
+    <div class="sub2-img"></div>
+</body>
+
+</html>
