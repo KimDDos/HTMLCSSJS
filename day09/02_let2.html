@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수 사용</title>
+</head>
+
+<body>
+    <h1>자바 스크립트의 변수 사용</h1>
+    <ul>
+        <li>
+            값을 담고 있는 메모리 공간에 이름을 붙여서 활용하기 위함
+        </li>
+        <li>
+            자바스크립트에서 변수는 선언하는 역할만 함 (이름 정의에 집중)
+        </li>
+        <li>
+            var, let(ES6 부터는 let을 사용하는 것을 적극 권장), const
+        </li>
+        <li>
+            자바와 달리 변수에 자료형을 표시하지 않음.
+        </li>
+        <li>
+            let으로 선언하면 어떤 값이든 다 담을 수 있음
+        </li>
+        <li>
+            var name = 'hong';
+            var name = 'kim'; => posible
+        </li>
+        <li>
+            자바에서의 지역변수 개념
+        </li>
+        <li>
+            let 중복 선언 안 됨, 재할당은 가능
+            let name = 'hong';
+            name = 'kim'; // 재할당은 가능
+        </li>
+        <li>
+            스코프(scope : 사용범위) { } 에서만 사용가능
+            스코프를 벗어나면 재선언 가능
+        </li>
+        <li>
+            지역변수 스코프 : { }
+        </li>
+        <li>
+            const : 재선언/재할당 불가능
+            const name : 'hong';
+            name = 'kim'; // 불가능.
+        </li>
+        <li>선언 이후 항상 고정값을 가지는 경우</li>
+        <li>고정된 값을 사용하는 규칙, 참조, 룰, 객체, 엘리먼트 정의시 사용</li>
+    </ul>
+    <script>
+        // 변수 선언
+        // camelCase : 자바, C++ 에서 주로 사용, 자바 스크립트에서도 사용
+        let myFirstVariable;
+
+        // snake_case : 언더바(_)를 활용하여 구분, DB 파이썬 자바스크립트도 사용(권장)
+        let my_first_variable;
+
+        myFirstVariable = 10;
+        my_first_variable = 'hong';
+
+        console.log(myFirstVariable);
+        console.log(typeof myFirstVariable);
+        console.log("---------------------------");
+        console.log(my_first_variable);
+        console.log(typeof my_first_variable);
+        console.log("---------------------------");
+
+        // 다른 언어들은 선언하지 않고, 사용 불가능
+        // 하지만 선언없이 사용 가능. 
+        // 선언없이 변수를 할당하면 그 변수는 전역에 영향을 미치므로 가급적 사용 X
+        mySecondVariable = 100;
+        console.log(mySecondVariable);
+
+        // 변수명 작성시 의미를 바로 알 수 있을 현태로 변수명을 작성
+        // 변수명을 숫자로 시작하는것은 불가능
+        // let 5name = 'hong';  // 불가능함 (빨간 밑줄도 띄워줌 ㅎㅎ)
+
+        // 상수 : 한번 선언 및 초기화를 하면 변경할 수 없는 변수
+        // 상수는 스네이크 표기법을 사용하여 대문자로 표현
+        const MY_NAME = "hong";  // 이후 동일한 영역에 선언, 변경 불가능
+        // MY_NAME = "KIM"; // 불가능
+        console.log(MY_NAME);
+
+        // typeof : 해당 변수의 타입을 확인
+        console.log(typeof MY_NAME);
+
+        // 이름, 나이, 주소를 변수로 선언하여 콘솔에 출력
+        // name : kim, age : 20, address : seoul
+        // 백틱 `` : 백틱 내부에 ${변수명}을 사용하여 삽입 가능
+        let name = 'kim';
+        let age = 20;
+        let address = 'seoul';
+        console.log("name : " + name + ", age : " + age + ", address : ");
+        console.log(`name : ${name}, age : ${age}, address : ${address}`);
+    </script>
+</body>
+
+</html>

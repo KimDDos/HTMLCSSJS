@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Object </title>
+</head>
+
+<body>
+    <h1>객체(Object) : 식별할 수 있는 것을 상세특징으로 표현하려는 형식</h1>
+    <ul>
+        <li>
+            const로 선언하는 것이 일반적 : 객체의 구조를 지속성으로 유지하고, 확보하기 위함.
+        </li>
+        <li>
+            { } 속성명 : 값, 속성명 : 값, 속성명 : 값 ...
+        </li>
+        <li>
+            속성명 : Key, 값: value
+        </li>
+        <li>
+            같은 Object내에 Key(속성명)는 중복 불가능 (고유 키)
+        </li>
+        <li>
+            객체 내부에서 속성값으로 사용할 수 있는 데이터의 타입은 제한이 없다.
+        </li>
+        <li>
+            객체의 속성 값으로 익명함수를 정의 => 그 함수를 메서드라고 부른다.
+            메서드의 이름은 속성명이 됨.
+        </li>
+    </ul>
+
+    <script>
+        const car = {
+            name: 'myCar',
+            year: 2023
+        };
+        console.log(car);
+        // car = 100;  // 재할당 불가능
+        // console.log(car);
+
+        let myCar = {  // 일반적이지 않음
+            name: 'superCar',
+            year: 2023
+        };
+        myCar = 100; // 재할당이 가능한 케이스임
+        // 객체가 사라짐 -> 객체를 활용하려고 했던 목적이 사라짐.
+        console.log(myCar);
+        console.log("------------------------------------------");
+
+        const me = {
+            name: "김도연",
+            age: 26,
+            addr: "경기도 시흥시 신천동",
+            isDeveloper: true,
+            'hobby': 'coffee',
+            'myFavor': 'game',
+            avail: {
+                year: 2020,
+                title: 'javascript',
+                ver: 'ES6+',
+                project: 'Back-End',
+                intro: function () {
+                    console.log(`${me.avail.title} : ${me.avail.ver}`);
+                    return `re: ${this.title} : ${this.ver}`;
+                }
+            },
+            tyar: 2023
+        };
+        console.log(me);
+        console.log(me.name);
+        console.log(me.age);
+        console.log(me.avail.year);
+        console.log(me.avail.project);
+        console.log(me.avail.intro); // 함수를 지목 (표시)
+        console.log(me.avail.intro()); // 함수를 실행
+        console.log("------------------------------------------");
+        console.log(me["addr"]);
+        console.log(me["hobby"]);
+        console.log(me['avail']['title']);
+        console.log(me['avail'].project);
+        console.log(me['avail']["intro"]()); // 함수실행
+
+        let keyName = 'age';
+        console.log(me[keyName]);
+
+
+        console.log("------------------------------------------");
+    </script>
+
+    <script>
+        // 과제 
+        // 객체 생성 : 좋아하는 가수의 인적사항, 가수의 플레이리스트 3곡
+        // 이름, 나이, 출생, 플레이리스트(객체로 3곡), 함수로 플레이리스트 3곡 출력 재생
+        const favorSinger = {
+            name: "나얼",
+            age: 45,
+            born: "경기도 의정부시",
+            title: {
+                music1: {
+                    album: "first-principle of mu Soul",
+                    Artist: "나얼",
+                    album_title: "바람기억",
+                    year: 2012,
+                    genre: "R&B/soul"
+                },
+                music2: {
+                    album: "first-Brown Eyes",
+                    Artist: "브라운 아이즈",
+                    album_title: "벌써 일년",
+                    year: 2001,
+                    genre: "R&B/soul"
+                },
+                music3: {
+                    album: "back To The Soul Flight",
+                    Artist: "나얼",
+                    album_title: "벌써 일년",
+                    year: 2005,
+                    genre: "R&B/soul"
+                }
+            },
+            play: function () {
+                console.log(`가수 ${name}의 플레이리스트 3곡 1.${this.title.music1.album_title}, \n 2.${this.title.music1.album_title}, 3.${this.title.music1.album_title}`);
+            }
+        };
+
+        console.log('이름 : ', favorSinger.name);
+        console.log('나이 : ', favorSinger.age);
+        console.log('출생 : ', favorSinger.born);
+
+        console.log(favorSinger.play());
+        console.log(favorSinger.title.music1);
+        console.log(favorSinger.title.music2);
+        console.log(favorSinger.title.music3);
+    </script>
+</body>
+
+</html>
