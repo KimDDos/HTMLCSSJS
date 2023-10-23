@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event-input</title>
+</head>
+
+<body>
+    <h1>
+        form 태그를 통해 데이터 받아오기
+    </h1>
+    <ul>
+        <li>
+            input, textarea, select, html element 속성, 텍스트 데이터 받아오기
+        </li>
+        <li>
+            input tag는 value 속성으로 값이 맵핑 되어 있으므로 value값을 호출하면
+            input 에 입력하는 값을 가져올 수 있음.
+        </li>
+        <li>
+            select-option, radio, chekbox value 값은 선택한 값을 가져오기 위해서는
+            별도의 value 값을 추가하는 작업이 필요
+        </li>
+        <li>
+            value 속성의 값은 모두 string 처리 됨,
+        </li>
+        <li>
+            string 처리된 value값을 숫자로 사용하기 위해서는 변환이 필요
+            parseInt를 사용하면 됨, 자바랑 똑같음
+        </li>
+    </ul>
+
+    <form action="">
+        <fieldset>
+            <legend>이벤트를 활용한 데이터 전송</legend>
+            id : <input type="text" id="userid"><br>
+            pw : <input type="password" id="userpw"><br>
+            birth : <input type="date" id="birth"><br>
+            pin : <input type="text" id="pin"><br>
+            <button type="button" onclick="clickEventInput()">전송</button>
+            <button type="button" onclick="makeList()">리스트로 전송</button>
+        </fieldset>
+    </form>
+    <h3 id="info">
+
+    </h3>
+
+    <ol id="ol">
+
+    </ol>
+
+    <script>
+        function makeList() {
+            let userid = document.getElementById('userid').value;
+            let userpw = document.getElementById('userpw').value;
+            let userbirth = document.getElementById('birth').value;
+            let userpin = document.getElementById('pin').value;
+            // ol 태그에 li로 추가
+            let ol = document.getElementById('ol');
+
+            // String => 숫자로 변경
+            // parseInt(변수 => 정수로 변경(int 형태로 변환)) // 정수만 가능
+            // Number(변수 => 숫자로 변경될 수 있는 값)
+            // userpin = parseInt(userpin);
+            userpin = Number(userpin);
+
+            // new Date()
+            userbirth = new Date(userbirth);
+
+            ol.innerHTML = `<li>${userid} type ${typeof userid} </li>`;
+            ol.innerHTML += `<li>${userpw} type ${typeof userpw} </li>`;
+            ol.innerHTML += `<li>${userbirth} type ${typeof userbirth} </li>`;
+            ol.innerHTML += `<li>${userpin} type ${typeof userpin} </li>`;
+        }
+
+        function clickEventInput() {
+            // 화면에서 입력한 값을 받아오는 과정
+            // 1. 화면에 그 값이 있어야 한다.
+            // 2. 저장 공간이 있어야 한다.
+            let userid = document.getElementById('userid').value;
+            let userpw = document.getElementById('userpw').value;
+            let userbirth = document.getElementById('birth').value;
+            let userpin = document.getElementById('pin').value;
+            console.log(`userid: ${userid}, userpw: ${userpw}, userbirth: ${userbirth}, userpin: ${userpin}, `);
+
+            // h3 태그에 출력
+            let info = document.getElementById('info');
+            let str = "";
+            str = `userid : ${userid}, `; // 덮어써짐
+            str += `userpw : ${userpw}, `;
+            str += `birth : ${userbirth}, `;
+            str += `pin : ${userpin}`;
+            info.innerText = str;
+        }
+
+
+
+    </script>
+</body>
+
+</html>
