@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>오늘은?</h1>
+    <button type="button" onclick="showToDay()">Today</button>
+    <h3 id="dayprint">
+        <!-- 오늘날짜와 요일 출력 -->
+        <!-- 2023. 10. 24.(화) -->
+    </h3>
+
+    <script>
+        function showToDay() {
+            let today = new Date();
+            let today2 = today.toLocaleDateString();
+            let days = today.getDay();
+            switch (days) {
+                case 0: days = "(일)"; break;
+                case 1: days = "(월)"; break;
+                case 2: days = "(화)"; break;
+                case 3: days = "(수)"; break;
+                case 4: days = "(목)"; break;
+                case 5: days = "(금)"; break;
+                case 6: days = "(토)"; break;
+                default: console("잘못된 입력입니다.");
+            }
+
+            document.getElementById('dayprint').innerText =
+                `${today2} ${days}`;
+
+        }
+        function today() {
+            // 강사님 풀이
+            let today = new Date();
+            let days = today.getDay();
+            let week = '';
+            switch (days) {
+                case 0: week = "(일)"; break;
+                case 1: week = "(월)"; break;
+                case 2: week = "(화)"; break;
+                case 3: week = "(수)"; break;
+                case 4: week = "(목)"; break;
+                case 5: week = "(금)"; break;
+                case 6: week = "(토)"; break;
+            }
+
+            document.getElementById('dayprint').innerText =
+                `${today.toLocaleDateString()} ${week}`;
+        }
+        const btn = document.getElementById('btn');
+        btn.addEventListener('click', () => {
+            // 내용추가
+        });
+
+        btn.onclick = function () {
+            // 내용추가
+        }
+    </script>
+</body>
+
+</html>
