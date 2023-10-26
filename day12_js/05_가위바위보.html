@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>
+        가위 바위 보를 10번 하여 승률 출력
+    </h1>
+    <button type="button" onclick="game()">승률출력</button>
+    <h3>
+        10게임 승률은 <span id="result"></span> %입니다.
+    </h3>
+
+    <script>
+        // 가위 바위 보 게임
+        // com = random / player = random
+        // 1=가위, 2=바위, 3=보
+        // 승률계산 (승/(10-무승부))
+        // 콘솔에 com, player 출력
+        // 승: 무: 패:  (player 입장)
+        // 승률 표현
+        function game() {
+            let win = 0;
+            let loss = 0;
+            let tie = 0;
+            let avg = 0;
+            for (let i = 0; i < 10; i++) {
+                let com = Math.floor(Math.random() * 3) + 1;
+                let player = Math.floor(Math.random() * 3) + 1;
+                switch (player) {
+                    case 1:
+                        if (com === 1) { tie++; }
+                        else if (com == 2) { loss++; }
+                        else if (com == 3) { win++; }
+                        break;
+                    case 2:
+                        if (com === 1) { win++; }
+                        else if (com == 2) { tie++; }
+                        else if (com == 3) { loss++; }
+                        break;
+                    case 3:
+                        if (com == 1) { loss++; }
+                        else if (com == 2) { win++; }
+                        else if (com == 3) { tie++; }
+                        break;
+                }
+            }
+            avg = (win / (10 - tie)) * 100;
+            document.getElementById('result').innerHTML =
+                `승 : ${win}, 패 : ${loss}, 무 : ${tie}로 ${avg.toFixed(2)}`;
+            console.log(`승 : ${win}, 패 : ${loss}, 무 : ${tie}`);
+        }
+    </script>
+</body>
+
+</html>

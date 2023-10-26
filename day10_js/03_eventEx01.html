@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        <fieldset>
+            <legend>성적확인</legend>
+            이름 : <input type="text" id="userName"><br>
+            국어 : <input type="number" id="kor"><br>
+            영어 : <input type="number" id="eng"><br>
+            수학 : <input type="number" id="math"><br>
+            <legend>성적계산</legend>
+            <button type="button" onclick="calc()">결과출력</button>
+        </fieldset>
+    </form>
+    <!-- 이름 : 합계 : 평균 : -->
+    <h3 id="sum"></h3>
+
+    <script>
+        function calc() {
+            let n = document.getElementById('userName').value;
+            let k = document.getElementById('kor').value;
+            let e = document.getElementById('eng').value;
+            let m = document.getElementById('math').value;
+            let sum = parseInt(k) + parseInt(e) + parseInt(m);
+            let avg = Math.round(sum / 3);
+
+            document.getElementById('sum').innerText =
+                `이름 : ${n} | 합계 : ${sum} | 평균 : ${avg.toFixed(2)}`;
+        }
+    </script>
+</body>
+
+</html>

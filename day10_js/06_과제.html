@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        tr,
+        td,
+        th {
+            border: 1px solid black;
+        }
+
+        td {
+            margin: 10px 10px 10px 10px;
+            padding: 10px 10px 10px 10px;
+            width: 150px;
+            height: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3></h3>
+    <ol id="ol">
+        <li id="">이름</li>
+        <li>거주지</li>
+        <li>좋아하는 리스트 3가지
+            <ul>
+                <li>1. ???</li>
+                <li>2. ???</li>
+                <li>3. ???</li>
+            </ul>
+        </li>
+        <li>이메일</li>
+        <li>지금 가장 원하는 것</li>
+    </ol>
+    <hr>
+
+    <h3 id="">리스트의 구조에 따라 자바스크립트 객체를 만들어보자~!!</h3>
+    <form action="">
+        <fieldset>
+            이름 : <input type="text" id="userName"><br>
+            거주지 : <input type="text" id="addr"><br>
+            좋아하는 리스트<br>
+            1번: <input type="text" id="favor1"><br>
+            2번: <input type="text" id="favor2"><br>
+            3번: <input type="text" id="favor3"><br>
+            이메일 : <input type="email" id="email"><br>
+            지금 가장 원하는 것 : <input type="text" id="wanna"><br>
+            <button type="button" onclick="submitInput()">객체로 전송</button>
+        </fieldset>
+    </form>
+
+    <br>
+    <br>
+
+    <form action="">
+        <span>
+            전송받은 데이터 출력
+        </span>
+        <button type="button" onclick="makeList()">출력하기</button>
+    </form>
+    <table id="showTable">
+        <tr>
+            <th>
+                이름
+            </th>
+            <td id="name1">
+
+            </td>
+        </tr>
+        <tr>
+            <th>
+                거주지
+            </th>
+            <td id="addr1">
+
+            </td>
+        </tr>
+        <tr>
+            <th>
+                좋아하는리스트
+            </th>
+            <td>
+                <li id="favor11"></li>
+                <li id="favor22"></li>
+                <li id="favor33"></li>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                이메일
+            </th>
+            <td id="email1">
+
+            </td>
+        </tr>
+        <tr>
+            <th>
+                지금 제일 원하는 것
+            </th>
+            <td id="wanna1">
+
+            </td>
+        </tr>
+    </table>
+
+
+    <script>
+        const dataObj = {
+            name: "",
+            addr: "",
+            favors: {
+                favor1: "",
+                favor2: "",
+                favor3: "",
+            },
+            email: "",
+            wanna: ""
+        };
+
+        function submitInput() {
+            dataObj.name = document.getElementById('userName').value;
+            dataObj.addr = document.getElementById('addr').value;
+            dataObj.favor1 = document.getElementById('favor1').value;
+            dataObj.favor2 = document.getElementById('favor2').value;
+            dataObj.favor3 = document.getElementById('favor3').value;
+            dataObj.email = document.getElementById('email').value;
+            dataObj.wanna = document.getElementById('wanna').value;
+
+            console.log(dataObj);
+        }
+
+        function makelist() {
+            name1.innerText = dataObj.name;
+            addr1.innerText = dataObj.addr;
+            favor11.innerText = dataObj.favor1;
+            favor22.innerText = dataObj.favor2;
+            favor33.innerText = dataObj.favor3;
+            email1.innerText = dataObj.email;
+            wanna1.innerText = dataObj.wanna;
+        }
+
+    </script>
+</body>
+
+</html>

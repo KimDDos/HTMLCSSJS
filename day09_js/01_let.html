@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript start~!</title>
+    <!-- script 태그를 사용해서 활용 -->
+    <!-- 
+        js의 위치는 body 하단에 위치, 단 먼저 받아야할 필요성이 있다면
+        헤더에 위치하기도
+
+     -->
+    <style>
+        /* css 영역 */
+    </style>
+    <script>
+        console.log("head안에서 스크립트 작성함.");
+    </script>
+    <script src="let.js"></script>
+</head>
+
+<body>
+    <!-- html 영역 -->
+    <h1>자바 스크립트 언어 사용법</h1>
+    <ol>
+        <il>
+            &lt;script&gt; <br> 내부에 작성한다. <br>
+            &lt;/script&gt; <br>
+        </il>
+        <il>
+            파일이름.js 파일을 만들어서 내부에 코드작성 후 &lt;script src="?"&gt;&lt;/script&gt;
+            src="?" 경로로 불러온다. <br>
+        </il>
+        <il>
+            Head 내부에 스크립트 작성도 가능 (사용시 주의!!) <br>
+
+        </il>
+        <il>
+            body 태그 내의 하단에 script 를 위치시켜 코드를 작성한다. (가장 많이 사용) <br>
+        </il>
+        <il>
+            마지막 끝처리;
+        </il>
+    </ol>
+    <script>
+        // js 영역
+        // 스크립트의 영역의 위치는 어느곳이든 가능
+        // 파일로 연결도 가능.
+        // script의 데이터를 읽는 순간 해당 요소가 생성되어 있지 않으면 error
+        // 일반적으로 body영역의 데이터를 대상으로 하는 스크립트라면
+        // body 하단에 적어주는 것이 error가 나지 않는다.
+        // 콘솔 출력 console.log("출력값")
+        // JS에서 사용하는 따옴표는 총 3가지 [ "" '' `` ]
+        let sum = 10;
+
+        console.log("처음 쓰는 로그 [큰 따옴표를 씀]" + sum);
+        console.log('두번째 쓰는 로그 [작은 따옴표를 씀]' + sum);
+        console.log(`백틱을 사용하여 출력 + ${sum}`);
+    </script>
+</body>
+
+</html>

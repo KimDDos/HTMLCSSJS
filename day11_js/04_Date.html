@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>날짜 관련 함수</title>
+</head>
+
+<body>
+    <h1>
+        날짜 관련 함수
+    </h1>
+    <ul>
+        <li>
+            new Date(); => 오늘 날짜 반환
+        </li>
+        <li>
+            getFullYear() : 연도만 리턴
+        </li>
+        <li>
+            getMonth() : (0~11)월 리턴이기에 +1은 반드시 들어가도록
+        </li>
+        <li>
+            getDate() : 일 1~31 리턴
+        </li>
+        <li>
+            getDay() : 요일 0(일) ~ 6(토)
+        </li>
+        <li>
+            getHours(), getMinutes(), getSeconds() : 시분초 추출
+        </li>
+    </ul>
+
+    <script>
+        let today = new Date();
+        console.log(today);
+        console.log(today.getFullYear());
+        console.log(today.getMonth());
+        console.log(today.getDate());
+        console.log(today.getDay());
+        console.log(today.getHours());
+
+        let today2 = today.toLocaleDateString();
+        console.log(today2);
+        // 오늘 날짜만 출력, 평상시 많이 사용하는 형식
+        // 출력결과 : 2023. 10. 24
+        let time = today.toLocaleTimeString();
+        console.log(time);
+        // 출력결과 : 오전 11:24:46
+        console.log(today.toLocaleString());
+
+
+
+    </script>
+</body>
+
+</html>
