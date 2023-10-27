@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Up Down Game</h1>
+    <ol>
+        <il>
+            랜덤으로 숫자만들기 버튼을 클릭하면 컴퓨터가 랜덤수 1~99 숫자 1개를 생성
+        </il>
+        <il>
+            숫자가 생성되면 '컴퓨터가 랜덤으로 숫자를 생성했습니다.' 문구 출력
+        </il>
+        <il>
+            input란에 1~99 중 숫자를 입력하고 맞추기 버튼을 클릭하면,
+        </il>
+        <il>
+            컴퓨터의 숫자보다 높으면 Down, 낮으면 Up이라고 출력
+        </il>
+        <il>
+            숫자를 맞추면 정답입니다~! 숫자는 ?? 였습니다. 출력
+        </il>
+    </ol>
+
+    <button type="button" onclick="comRan()"> 랜덤숫자 생성 버튼 </button>
+    <button type="button" onclick="comReset()"> 다시 시도 </button>
+    <br>
+    <h3 id="printCom"></h3>
+    <input type="number" id="userwrite">
+    <button type="button" onclick="gameUpDown()"> 정답!! </button>
+    <br>
+    <h3 id="result"></h3>
+
+    <script>
+        let com = 0;
+        let count = 0;
+
+        function comRan() {
+            com = Math.floor(Math.random() * 99) + 1;
+            document.getElementById('printCom').innerText =
+                `컴퓨터가 랜덤수(1~99)를 생성했습니다.`;
+        }
+
+        function comReset() {
+            com = 0;
+            count = 0;
+            document.getElementById('printCom').innerText = "";
+            document.getElementById('result').innerText = "";
+        }
+
+        function gameUpDown() {
+            let player = document.getElementById('userwrite').value;
+            let result = 0;
+            if (0 > player || player >= 100) {
+                alert("범위를 초과한 수입니다. 다시 입력해주세요.")
+                return;
+            }
+            if (player > com) {
+                result = 2;
+            } else if (player < com) {
+                result = 3;
+            } else {
+                result = 1;
+            }
+            count++;
+            printResult(result);
+        }
+
+        function printResult(result) {
+            let gameresult = result == 1 ? "정답입니다." : result == 2 ? "Down" : "Up";
+            if (result == 1) {
+                document.getElementById('result').innerText =
+                    `시도횟수 ${count}, ${gameresult} 컴퓨터 숫자는 ${com} 이였습니다.`;
+            } else {
+                document.getElementById('result').innerText =
+                    `시도횟수 ${count}, ${gameresult}`;
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>
