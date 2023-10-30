@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lotto</title>
+</head>
+
+<body>
+    <h1>
+        1~45까지 중복되지 않게 숫자 6개를 랜덤으로 추출 => 출력
+        set 객체를 사용하여 생성
+    </h1>
+    <button type="button" onclick="randomNum()">랜덤번호 6개 생성(출력)</button>
+    <h1 id="randomNumPrint">로또번호 출력</h1>
+    <button type="button" onclick="winningNumCreate()">당첨번호 7자리(마지막번호는 보너스 번호) 생성(출력)</button>
+    <h1 id="winningNumPrint">당첨번호 출력</h1>
+    <button type="button" onclick="numCheck()">결과확인</button>
+    <h1 id="result">당첨여부 출력</h1>
+    <script>
+        const myNum = new Set();
+        let myNumArr = {};
+        const winNum = new Set();
+        let winNumArr = {};
+        const randomNumPrint = document.getElementById('randomNumPrint');
+        const winningNumPrint = document.getElementById('winningNumPrint');
+
+        function randomNum() {
+            myNum.clear();
+            while (myNum.size < 6) {
+                let num = Math.floor(Math.random() * 45) + 1;
+                myNum.add(num);
+            }
+            const arr1 = Array.from(myNum);
+            // myNumArr = Array.from(myNum);
+            myNumArr = arr1.sort(function (a, b) {
+                return a - b;
+            });
+            let str = "로또번호 : ";
+            for (let a of myNumArr) {
+                str += `${a} `;
+            }
+            randomNumPrint.innerText = str;
+        }
+
+        function winningNumCreate() {
+            winNum.clear();
+            while (winNum.size < 7) {
+                let num = Math.floor(Math.random() * 45) + 1;
+                winNum.add(num);
+            }
+            winNumArr = Array.from(winNum);
+            let str = "당첨번호 : ";
+            for (let a of winNumArr) {
+                str += `${a} `;
+            }
+            winningNumPrint.innerText = str;
+        }
+
+        function numCheck() {
+            let count = 0;
+            let bonuscount = 0;
+            let str = "당첨결과 : ";
+            for (let i = 0; i < winNumArr.length; i++) {
+                for (let k = 0; k < myNumArr.length; k++) {
+                    if (winNumArr[i] == myNumArr[k]) {
+                        count++;
+                    } else if (i == 6 && winNumArr[i] == myNumArr[k]) {
+                        bonuscount++;
+                    }
+                }
+            }
+            if (count == 3) {
+                str += "5등";
+            } else if (count == 4) {
+                str += "4등";
+            } else if (count == 5) {
+                str += "3등";
+            } else if (count == 5 && bonuscount == 1) {
+                str += "2등";
+            } else if (count == 6) {
+                str += "1등";
+            } else {
+                str += "꽝";
+            }
+            document.getElementById('result').innerText = str;
+        }
+
+    </script>
+</body>
+
+</html>

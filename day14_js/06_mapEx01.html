@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map 예제</title>
+</head>
+
+<body>
+    <!-- 
+        input 2개 생성 => 과목, 점수
+        추가 => map에 추가
+        출력 => map을 출력  => ul / li로 추가해서 출력
+        결과 => 합계, 평균, 합격여부(60이상이면 합격) => h3
+    -->
+    <form action="">
+        과목 : <input type="text" id="subject">
+        점수 : <input type="number" id="score">
+        <button type="button" onclick="dateAdd()">추가</button>
+        <button type="button" id="prtAll">출력</button>
+        <button type="button" id="sumAvg">결과</button>
+    </form>
+    <ul id="result"></ul>
+    <h3 id="tot"></h3>
+
+    <script>
+        const myMap = new Map();
+        const printAll = document.getElementById('prtAll');
+        const calculator = document.getElementById('sumAvg');
+        myMap.set('국어', 80);
+        myMap.set('영어', 70);
+        myMap.set('수학', 60);
+        function dateAdd() {
+            let sub = document.getElementById('subject').value;
+            let point = Number(document.getElementById('score').value);
+            if (0 <= point && point <= 100) {
+                myMap.set(`${sub}`, point);
+            } else {
+                alert("0~100 사이의 점수를 입력해주세요.");
+            }
+        }
+
+        printAll.addEventListener('click', () => {
+            let str = "";
+            for (let map of myMap.entries()) {
+                let count = 1;
+                str += `<li>`;
+                for (let key of map) {
+                    if (count % 2 == 1) {
+                        str += `과목 : ${key} / `;
+                    } else {
+                        str += `점수 : ${key}`;
+                    }
+                    count++;
+                }
+                str += `</li>`;
+            }
+            document.getElementById('result').innerHTML = str;
+        });
+
+        calculator.addEventListener('click', () => {
+            let str = "";
+            let sum = 0;
+            for (let map of myMap) {
+                let count = 1;
+                for (let a of map) {
+                    if (count % 2 == 0) {
+                        sum += a;
+                    }
+                    count++;
+                }
+            }
+            let avg = sum / myMap.size;
+            str = `합계 : ${sum}, 평균 : ${avg.toFixed(2)}`
+            document.getElementById('tot').innerHTML = str;
+        })
+
+
+    </script>
+</body>
+
+</html>
