@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>계산기</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="area top">
+      <button type="button" value="7">7</button>
+      <button type="button" value="8">8</button>
+      <button type="button" value="9">9</button>
+      <button type="button" value="+">+</button>
+      <button type="button" value="c" onclick="reset()">c</button> <br>
+      <button type="button" value="4">4</button>
+      <button type="button" value="5">5</button>
+      <button type="button" value="6">6</button>
+      <button type="button" value="-">-</button> <br>
+      <button type="button" value="1">1</button>
+      <button type="button" value="2">2</button>
+      <button type="button" value="3">3</button>
+      <button type="button" value="*">*</button> <br>
+      <button type="button" value=".">.</button>
+      <button type="button" value="0">0</button>
+      <button type="button" value="=">=</button>
+      <button type="button" value="/">/</button>
+    </div>
+    <h1 id="printResult"></h1>
+  </div>
+  <script>
+    let printResult = document.getElementById('printResult');
+    let result = 0;
+    let firstVal = 0;
+    let SecondVal = 0;
+    let str = "";
+    let op = "";
+
+    document.querySelector('.container').addEventListener('click', (e) => {
+      // eval() : 비권장 보안 취약.
+      if (e.target.value == undefined) {
+        alert("잘못된 클릭입니다.");
+      } else {
+        if (e.target.value == '+' || e.target.value == '-' || e.target.value == '*' || e.target.value == '/') {
+          op = e.target.value;
+          firstVal = Number(str);
+          str = "";
+          if (firstVal == 0) {
+            alert('숫자를 먼저 입력해주세요.');
+          }
+        } else if (firstVal != 0 && op != "" && e.target.value == '=') {
+          SecondVal = Number(str);
+          printResult.innerText = `${firstVal} ${op} ${SecondVal} = ` + calcResult(firstVal, op, SecondVal);
+          function calcResult(firstVal, op, SecondVal) {
+            switch (op) {
+              case '+': result = firstVal + SecondVal; break;
+              case '-': result = firstVal - SecondVal; break;
+              case '*': result = firstVal * SecondVal; break;
+              case '/': result = firstVal / SecondVal; break;
+              default: break;
+            }
+            return result;
+          }
+        } else {
+          str += e.target.value;
+        }
+      }
+    })
+
+    function reset() {
+      firstVal = "";
+      SecondVal = "";
+      op = "";
+      str = "";
+      result = "";
+      printResult.innerText = "";
+    }
+  </script>
+</body>
+
+</html>
