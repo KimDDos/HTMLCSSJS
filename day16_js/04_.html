@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async Ex02</title>
+    <style>
+        @font-face {
+            font-family: Hahmlet;
+            src: url(../Font/Hahmlet/Hahmlet-VariableFont_wght.ttf);
+        }
+
+        body {
+            font-family: Hahmlet;
+            padding: 0px 0px;
+            margin: 0 0 0 0;
+            background-color: rgba(0, 0, 0, 0.842);
+            background-image: url(../image/배경.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        header {
+            width: 100%;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.836);
+            text-shadow: 4px 4px 7px black;
+            padding-top: 20%;
+            padding-bottom: 20%;
+            font-size: xx-large;
+        }
+
+        .main {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.836);
+            text-shadow: 4px 4px 7px black;
+            font-size: large;
+        }
+
+        .box1,
+        .box2,
+        .box3 {
+            text-align: center;
+            isolation: auto;
+            height: 350px;
+            width: 33%;
+            margin: 5px 3px 5px 3px;
+            background-color: rgba(255, 255, 255, 0.212);
+        }
+
+        ul {
+            margin-left: 70px;
+        }
+
+        li {
+            text-align: left;
+        }
+
+        @media (max-width:600px) {
+            ul {
+                margin-left: 20px;
+            }
+        }
+
+        @media (max-width:1200px) {
+            ul {
+                margin-left: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="title" id="print1">
+
+    </header>
+    <div class="main">
+        <div class="box1" id="boxPrint1"></div>
+        <div class="box2" id="boxPrint2"></div>
+        <div class="box3" id="boxPrint3"></div>
+    </div>
+    <script>
+        // https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json
+        setting();
+        function setting() {
+            fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+                .then(resp => resp.json())
+                .then(result => headerPrint(result))
+                .catch(err => console.log(err));
+            for (let i = 0; i <= 3; i++) {
+                fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+                    .then(resp => resp.json())
+                    .then(result => mainPrint(result, i))
+                    .catch(err => console.log(err));
+            }
+        }
+
+        function headerPrint(result) {
+            let head = document.getElementById('print1');
+            let count = 0;
+            for (const arr in result) {
+                if (arr == 'squadName') {
+                    head.innerHTML += `<h1>${result[arr]}</h1>`;
+                } else if (arr == 'homeTown' || arr == 'formed') {
+                    arr == 'homeTown' ? head.innerHTML += `${arr}: ${result[arr]} // ` : arr == 'formed' ? head.innerHTML += `${arr}: ${result[arr]} ` : '';
+                }
+            }
+        }
+
+        function mainPrint(obj, boxNum) {
+            let main = document.getElementById(`boxPrint${boxNum}`);
+            let str = "";
+            for (const arr in obj.members[boxNum - 1]) {
+                str += arr == 'name' ? `<h2>${arr}: ${obj.members[boxNum - 1][arr]}</h2>` : ``;
+                str += arr == 'age' ? `<p>${arr}: ${obj.members[boxNum - 1][arr]}</p>` : ``;
+                str += arr == 'secretIdentity' ? `<p>${arr}: ${obj.members[boxNum - 1][arr]}</p>` : ``;
+                str += arr == 'name' ? `<p>${arr}: ${obj.members[boxNum - 1][arr]}</p>` : ``;
+            }
+            str += `<ul>`;
+            for (const arr in obj.members[boxNum - 1].powers) {
+                str += `<li>${obj.members[boxNum - 1].powers[arr]}</li>`;
+            }
+            str += `</ul>`;
+            main.innerHTML = str;
+        }
+    </script>
+</body>
+
+</html>

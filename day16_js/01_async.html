@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async await</title>
+</head>
+
+<body>
+    <h1>
+        비동기 통신(asynchronous communication) : AJAX
+    </h1>
+    <ul>
+        <li>
+            데이터 통신 방식 : 동기통신, 비동기통신
+        </li>
+        <li>
+            동기통신(synchronous) :
+            동시에 일어나는 요청을 하면 바로 응답을 받는다는 의미 <br>
+            순서적임.
+        </li>
+        <li>
+            비동기 통신(asynchronous) :
+            동시에 일어나지 않는다. 요청한 그자리에서 결과가 주어지지 않을 수도 있음. <br>
+            순서적이지 않음.
+        </li>
+        <li>
+            동기와 비동기의 장단점
+        </li>
+        <li>
+            동기방식 : 직관적, 설계가 간단하다.
+            결과가 주어지기 전까지는 아무것도 못하고 대기해야 한다는 단점이 있음
+        </li>
+        <li>
+            비동기방식 : 설계가 복잡함. 결과가 주어지는데 시간이 걸려도,
+            다른 작업을 할 수 있음. 효율적임.
+        </li>
+        <li>
+            비동기방식 : AJAX jquery
+            실무에서는 Jquery를 사용해서 적용시킴
+            수업에서는 JS를 활용해서 할 예정
+        </li>
+    </ul>
+    <ul>
+        <h1>
+            async await : Promise 객체를 이용하여 데이터 통신을 편리하게 할 수 있도록 제공되는 키워드
+        </h1>
+        <ul>
+            <li>
+                async 키워드 : 함수선언 앞에 붙이는 키워드(function)
+                그 함수의 리턴값이 promies 객체 타입으로 리턴 됨.
+            </li>
+            <li>
+                await 키워드 : 순차적으로 코드가 실행되어야 할 때 사용
+                순차 코드 실행시 지연로딩, 지연실행 같은 상황이 발생하면 코드 실행을 순차적으로 진행할 수 있도록 보증한다.
+                즉, 이전 라인의 코드 실행이 완료될 때 까지 다음 라인은 기다릴 수 있도록 하는 기능
+            </li>
+            <li>
+                https://jsonplaceholder.typicode.com/
+                JSON 코드를 연습해볼수 있는 사이트
+            </li>
+        </ul>
+    </ul>
+    <h3>async await 연습</h3>
+    <button type="button" id="btn">데이터 불러오기</button>
+    <ul id="ul">
+
+    </ul>
+    <script>
+        // fetch(url, [보내는 데이터 정보(config)])
+        // 어떤 정보를 어떤 형식으로 어떻게 할것인가? 를 정의하는 것임
+        // 비동기 통신을 할때는 인터넷창 F12에서 Network도 볼 수 있어야 함
+        document.getElementById('btn').addEventListener('click', () => {
+
+            awaitFun().then(res => printData(res));
+
+        })
+
+        function printData(obj) {
+            console.log(obj);
+            let ul = document.getElementById('ul');
+            for (const key in obj) {
+                ul.innerHTML += `<li>${key} : ${obj[key]}</li>`;
+            }
+        }
+
+        async function awaitFun() {
+            // await 할때 try ~ catch는 필수임
+            try {
+                const resp = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+                const result = await resp.json();  // => Object로 리턴
+                // const result = await resp.text(); => String으로 리턴
+                console.log(resp);
+                console.log(typeof resp);
+                console.log(result);
+                console.log(typeof result);
+                return result;
+
+            } catch (err) {
+                console.log(err);
+            } finally {
+                console.log('await finish');
+            }
+        }
+    </script>
+</body>
+
+</html>

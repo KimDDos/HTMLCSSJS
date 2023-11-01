@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    n번부터 <input type="number" id="start">
+    m번까지 <input type="number" id="end">
+    <button type="button" id="btn">데이터 가져오기</button>
+    <ul id="ul">
+
+    </ul>
+
+    <script>
+        document.getElementById('btn').addEventListener('click', () => {
+            let start = Number(document.getElementById('start').value);
+            let end = Number(document.getElementById('end').value);
+            let ul = document.getElementById('ul').innerHTML = ``;
+
+            for (let i = start; i <= end; i++) {
+                fetch(`https://jsonplaceholder.typicode.com/todos/${i}`)
+                    .then(resp => resp.json())
+                    .then(result => printData(result))  // 성공시
+                    .catch(err => console.log(err));  // 실패시
+            }
+        })
+
+        function printData(obj) {
+            console.log(obj);
+
+            let ul = document.getElementById('ul');
+            for (const key in obj) {
+                ul.innerHTML += `<li>${key} : ${obj[key]}</li>`;
+            }
+            ul.innerHTML += `---------------------------------`;
+        }
+
+    </script>
+</body>
+
+</html>
