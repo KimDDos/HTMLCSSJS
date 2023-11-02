@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: Hahmlet;
+            src: url(../Font/Hahmlet/Hahmlet-VariableFont_wght.ttf);
+        }
+
+        body {
+            font-family: Hahmlet;
+            margin: 0 0 0 0;
+            padding: 0 0 0 0;
+        }
+
+
+        .container {
+            text-align: center;
+            width: 100%;
+            padding-top: 30px;
+            background-color: antiquewhite;
+        }
+
+        h2 {
+            font-size: 50px;
+        }
+
+        .inputbox input {
+            padding: 0 0 0 0;
+            margin: 10 5 10 5;
+            border: 1px solid rgba(128, 128, 128, 0.432);
+            width: 350px;
+            height: 30px;
+            border-radius: 3px;
+            font-weight: 700;
+        }
+
+        .inputbox button {
+            margin: 10 5 10 5;
+            width: 80px;
+            border: 1px solid rgba(128, 128, 128, 0.432);
+            border-radius: 3px;
+            font-weight: 700;
+            font-size: larger;
+        }
+
+        .listbox {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            background-color: rgba(10, 10, 252, 0.37);
+        }
+
+        .listbox ul {
+            padding: 0 0 0 0;
+            width: 60%;
+            list-style: none;
+            text-align: left;
+            font-weight: 700;
+            font-size: larger;
+        }
+
+        .listbox ul li {
+            width: 100%;
+            display: flex;
+            border-radius: 2px;
+            justify-content: space-between;
+        }
+
+        li:hover {
+            background-color: aquamarine;
+        }
+
+        .listbox button {
+            border-style: none;
+            background-color: rgba(255, 255, 255, 0);
+            font-weight: 700;
+            font-size: larger;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>여행 준비물 점검 목록</h2>
+        <form action="" class="inputbox">
+            <input type="text" id="input">
+            <button type="button" id="inputBtn">추가</button>
+        </form>
+        <div class="listbox">
+            <ul id="itemList">
+
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let itemList = document.getElementById('itemList');
+        const itemArr = [];
+
+        document.getElementById('inputBtn').addEventListener('click', () => {
+            listAdd();
+            printItem();
+        });
+
+        function listAdd() {
+            let item = document.getElementById('input').value;
+            if (item == "") {
+                alert('빈 값을 넣을 수 없습니다.');
+            } else {
+                itemArr.push(item);
+            }
+            document.getElementById('input').value = "";
+        }
+
+        function printItem() {
+            let cnt = 0;
+            let str = "";
+            for (const a of itemArr) {
+                str += `<li> ${a} <button type="button" value="${cnt}" onclick="deleteItem(${cnt})">X</button></li>`;
+                cnt++;
+            }
+            itemList.innerHTML = str;
+        }
+
+        function deleteItem(index) {
+            itemArr.splice(index, 1);
+            printItem();
+        }
+    </script>
+</body>
+
+</html>

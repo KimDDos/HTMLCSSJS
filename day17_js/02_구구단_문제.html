@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 문제 풀기</title>
+</head>
+
+<body>
+    <ul>
+        <li>
+            문제를 풀때 정답, 오답의 결과를 나타냄
+        </li>
+        <li>
+            총 10개의 문제중 정답률을 출력
+        </li>
+    </ul>
+    <button type="button" onclick="createQuest()">문제출제</button>
+    <div id="QuestList">
+
+    </div>
+    <!-- <input type="number">  -->
+
+    <script>
+        let list = document.getElementById('QuestList');
+        const answer = [];
+
+        function createQuest() {
+            let str = "<ol>";
+            let ran1 = 0;
+            let ran2 = 0;
+            for (let i = 0; i < 10; i++) {
+                ran1 = Math.floor(Math.random() * 9) + 1;
+                ran2 = Math.floor(Math.random() * 9) + 1;
+                str += `<li> ${ran1} X ${ran2} = <input type="text" id="check${i}"></li>`;
+                answer.push(ran1 * ran2);
+            }
+            str += `</ol>`;
+            list.innerHTML = str;
+            list.innerHTML += `<button type="button" onclick="answerCheck()">정답확인</button>`;
+        }
+
+        function answerCheck() {
+            let userAnswer = '';
+            let accNum = 0;
+            for (let i = 0; i < 10; i++) {
+                userAnswer = document.getElementById(`check${i}`);
+                if (answer[i] == userAnswer.value) {
+                    userAnswer.value = `${answer[i]} 정답`;
+                    document.getElementById(`check${i}`).style.backgroundColor = 'green';
+                    accNum++;
+                } else {
+                    userAnswer.value = `${userAnswer.value} 오답`;
+                    document.getElementById(`check${i}`).style.backgroundColor = 'red';
+                }
+            }
+            list.innerHTML += `<h3>정답률 : ${((accNum / 10) * 100).toFixed(2)}%</h3>`
+        }
+    </script>
+</body>
+
+</html>
