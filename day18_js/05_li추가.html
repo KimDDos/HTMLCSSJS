@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" id="btn1">li 한번에 추가</button>
+    <button type="button" id="btn2">li 하나씩 추가</button>
+    <button type="button" id="btn3">li 한번에 추가</button>
+    <button type="button" id="btn4">li 한번에 추가</button>
+    <ul id="allPush"></ul>
+    <hr>
+    <ol id="oneByOne"></ol>
+    <hr>
+
+    <script>
+        const arr = ['HTML', 'CSS', 'JavaScript', 'SQL']
+        document.getElementById('btn1').addEventListener('click', () => {
+            let str1 = '';
+            let allPush = document.getElementById('allPush');
+            for (const a of arr) {
+                str1 += `<li>${a}</li>`;
+            }
+            allPush.innerHTML = str1;
+        })
+
+        let cnt = 0;
+        document.getElementById('btn2').addEventListener('click', () => {
+            let oneByOne = document.getElementById('oneByOne');
+            let str2 = '';
+            if (cnt == arr.length) {
+                alert('더이상 출력할수없습니다.');
+                return;
+            } else {
+                for (let i = 0; i <= cnt; i++) {
+                    str2 += `<li>${arr[i]}</li>`;
+                }
+                cnt++;
+            }
+            oneByOne.innerHTML = str2;
+
+
+        })
+    </script>
+</body>
+
+</html>

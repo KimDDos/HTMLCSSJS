@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>야구게임</title>
+</head>
+
+<body>
+    <h1>컴퓨터가 0~9의 중복되지 않는 정수 3개를 랜덤으로 출제하면 맞추는 게임</h1>
+    <h3></h3>
+    <ol>
+        <li>세자리의 숫자는 각 자리수를 갖고 서로 중복되지 않는다</li>
+        <li>각 자리수와 입력한 숫자의 자리수가 동일하면 1 Strike(스트라이크)</li>
+        <li>입력한 숫자가 포함되어 있으나 자리수가 동일하지 않으면 1 Ball(볼)</li>
+        <li>입력한 숫자가 전혀 포함되어 있지 않으면 Out</li>
+        <li>3 스트라이크이면 1게임 종료</li>
+        <li>플레이 예시 <br>
+            컴숫자(4,2,9) >> 내추측숫자 (4,1,7) > 1S<br>
+            컴숫자(4,2,9) >> 내추측숫자 (4,9,1) > 1S 1B<br>
+            컴숫자(4,2,9) >> 내추측숫자 (7,4,2) > 2B<br>
+            컴숫자(4,2,9) >> 내추측숫자 (3,8,1) > OUT
+        </li>
+    </ol>
+    <hr>
+    <button type="button" id="start">게임시작</button> <br>
+    <br>
+    <form action="">
+        숫자추측하기 : <input type="text" id="input">
+        <button type="button" id="inputBtn">추측확인</button>
+    </form>
+    <!-- 시도결과가 아래에 누적해서 출력 -->
+    <h3 id="result"></h3>
+
+    <script>
+        let ansSet = new Set();
+        let ansArr = [];
+        let userGuess = [];
+        let count = 0;
+        let result = document.getElementById('result');
+
+        document.getElementById('start').addEventListener('click', () => {
+            ansSet.clear();
+            count = 0;
+            while (ansSet.size < 3) {
+                let ran = Math.floor(Math.random() * 9);
+                ansSet.add(ran);
+            }
+            let cnt = 0;
+            for (let a of ansSet) {
+                ansArr[cnt++] = a;
+            }
+            console.log(ansArr);
+        });
+
+        document.getElementById('inputBtn').addEventListener('click', () => {
+            let input = document.getElementById('input').value;
+            console.log(input);
+            if (input.value == '') {
+                result.innerText = "유효하지 않은 입력입니다.";
+            } else {
+                userGuess = input.split("");
+                count++;
+                console.log(userGuess);
+
+                let S = 0;
+                let B = 0;
+                for (let i = 0; i < userGuess.length; i++) {
+                    for (let k = 0; k < userGuess.lengh; k++) {
+                        if (Number(ansArr[i]) == Number(userGuess[k])) {
+                            if (i == k) { S++; }
+                            else { B++; }
+                        }
+                    }
+                }
+                if (S == 0 && B == 0) {
+                    result.innerHTML += `${count}. OUT <br>`;
+                } else {
+                    result.innerHTML += S >= 1 ? `${count}. ${S}S${B}B <br>` : `${count}. ${B}B <br>`;
+                }
+
+            }
+        });
+
+        // function isContains() {
+        //     let S = 0;
+        //     let B = 0;
+        //     for (let i = 0; i < userGuess.length; i++) {
+        //         for (let k = 0; k < userGuess.lengh; k++) {
+        //             if (Number(ansArr[i]) == Number(userGuess[i])) {
+        //                 if (i == k) S++;
+        //                 else B++;
+        //             }
+        //         }
+        //     }
+        //     if (S == 0 && B == 0) {
+        //         result.innerHTML += `${count}. OUT`;
+        //     } else {
+        //         result.innerHTML += S >= 1 ? `${count}. ${S}S${B}B` : `${count}. ${B}B`;
+        //     }
+        // };
+
+    </script>
+</body>
+
+</html>

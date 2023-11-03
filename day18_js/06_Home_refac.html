@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Home</title>
+    <!-- 
+        magin : 10px 상하좌우전체 여백
+        magin : 10px 20px 상하 / 좌우 여백
+        magin : 10px 20px 50px 상 / 하 / 좌우 여백
+        magin : 10px 20px 50px 10px 상 / 하 / 좌 / 우 여백
+    -->
+    <style>
+        @import url(../day18_js/reset.css);
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Travel</h1>
+        </header>
+        <ul>
+            <li value="0">Home</li>
+            <li value="1">Seoul</li>
+            <li value="2">Tokyo</li>
+            <li value="3">Paris</li>
+        </ul>
+        <div class="main-img" id="main-img">
+            <img src="../image/travel/Home_Main.jpg" alt="not found">
+        </div>
+    </div>
+
+    <script>
+        const imgArr = ["../image/travel/Home_Main.jpg", "../image/travel/Seoul_main.jpg", "../image/travel/Tokyo_Main.jpg", "../image/travel/Paris_Main.jpg"];
+
+        document.querySelector('.container').addEventListener('click', (e) => {
+            let select = Number(e.target.value);
+            let mainImg = document.getElementById('main-img');
+            if (isNaN(select)) {
+                mainImg.innerHTML = `<img src="${imgArr[0]}" alt="not found">`;
+            } else {
+                mainImg.innerHTML = `<img src="${imgArr[select]}" alt="not found">`;
+            }
+        });
+    </script>
+</body>
+
+</html>

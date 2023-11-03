@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url(../day18_js/reset.css);
+    </style>
+</head>
+
+<body>
+    <h1>Travel</h1>
+    <ul>
+        <li><a id="home" onclick="clickCity(this)">Home</a></li>
+        <li><a id="Seoul" onclick="clickCity(this)">Seoul</a></li>
+        <li><a id="Tokyo" onclick="clickCity(this)">Tokyo</a></li>
+        <li><a id="Paris" onclick="clickCity(this)">Paris</a></li>
+    </ul>
+    <img src="../image/travel/Home_Main.jpg" alt="home" id="cityImg">
+
+    <script>
+        const clickCity = (elem) => {
+            console.log(elem.id);
+            let idVal = elem.id;
+            document.getElementById('cityImg').src =
+                `../image/travel/${idVal}_Main.jpg`;
+        }
+    </script>
+</body>
+
+</html>

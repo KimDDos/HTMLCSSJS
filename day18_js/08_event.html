@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>
+        document 영역에서 사용되는 이벤트를 정의
+    </h1>
+    <ul>
+        <li>
+            마우스 이벤트 : click(), focus(), input(), change(), mouseover()
+            mouseout(), scroll() ...
+        </li>
+        <li>
+            키보드 이벤트 : keyDown(), keyPress(), keyUp()
+        </li>
+        <li>
+            기타이벤트 : prevenDefault() : 사용한 이벤트 취소?
+            target, submit()
+
+        </li>
+        <li>
+            addEventListener('evenName',callback function);
+            메서드를 사용하여 구현하는 것을 권장 <br>
+            onclick 보다 addEventListener를 권장함, 사유로는 여러 중복 이벤트를 발생시킬수 있기 때문
+        </li>
+        <li>
+            이벤트 중복 부여 가능 여부로 onclick과 addEventListener 사용를 판별하면 될 듯?
+            추가로 확장성을 고려하면 리스너 쓰는게 맞음 ㅇㅇ
+        </li>
+    </ul>
+
+    <div id="container">
+        <img src="../image/초밥.jpg" id="pic" alt="">
+    </div>
+
+    <script>
+        // 이미지에 마우스를 올리면 그림을 변경
+        // 마우스가 영역을 벗어나면 기존 그림으로 변경
+        let pic = document.getElementById('pic');
+        pic.addEventListener('mouseover', () => {
+            pic.src = "../image/떡볶이.jpg";
+        })
+
+        pic.addEventListener('mouseout', () => {
+            pic.src = "../image/초밥.jpg";
+        })
+    </script>
+</body>
+
+</html>
